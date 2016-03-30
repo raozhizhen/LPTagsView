@@ -1,6 +1,6 @@
 //
 //  LPTagCollectionViewCell.h
-//  LPTagsViewDemo
+//  startupTools
 //
 //  Created by jm on 15/12/11.
 //  Copyright © 2015年 Loopeer. All rights reserved.
@@ -55,9 +55,11 @@
 
 @property (nonatomic, strong) NSArray<LPTagModel *> *tagArray;/**<标签数组,可以从这里获取所有标签选中信息*/
 
-@property (nonatomic, assign) BOOL disableChoose;
+@property (nonatomic, strong) LPTagCellModel *selectedTagCellModel;
 
-@property (nonatomic, assign) CGFloat tagCollectionViewHeight;
+@property (nonatomic, strong) LPTagCellModel *notSelectedTagCellModel;
+
+@property (nonatomic, assign) BOOL disableChoose;
 
 + (NSString *)cellReuseIdentifier;
 

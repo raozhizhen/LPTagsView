@@ -32,6 +32,8 @@
     _tableView.delegate = self;
     _tableView.backgroundColor = [UIColor whiteColor];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView registerClass:[LPTagCollectionViewCell class] forCellReuseIdentifier:[LPTagCollectionViewCell cellReuseIdentifier]];
+    [_tableView registerClass:[LPTagCollectionViewCell class] forCellReuseIdentifier:@"2312"];
     [self.view addSubview:_tableView];
 }
 
@@ -88,25 +90,26 @@
         return cell;
     } else {
         if (indexPath.row == 8) {
-            LPTagCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%@%@", [LPTagCollectionViewCell cellReuseIdentifier], indexPath]];
-            if (!cell) {
-                cell = [[LPTagCollectionViewCell alloc] initWithTagModelArray:_tagArray withSelectedTagCellModel:_selectedTagCellModel notSelectedTagCellModel:_notSelectedTagCellModel reuseIdentifier:[NSString stringWithFormat:@"%@%@", [LPTagCollectionViewCell cellReuseIdentifier], indexPath]];
-                cell.maximumNumber = 10;
-                cell.maximumHeight = 200;
-                cell.switchTagDelegate = self;
-            }
+            LPTagCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[LPTagCollectionViewCell cellReuseIdentifier] forIndexPath:indexPath];
+            cell.maximumNumber = 1;
+            cell.switchTagDelegate = self;
+            cell.selectedTagCellModel = _selectedTagCellModel;
+            cell.notSelectedTagCellModel = _notSelectedTagCellModel;
+            cell.tagArray = _tagArray;
+            cell.maximumHeight = 200;
             return cell;
         } else {
-            LPTagCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"%@%@", [LPTagCollectionViewCell cellReuseIdentifier], indexPath]];
-            if (!cell) {
-                cell = [[LPTagCollectionViewCell alloc] initWithTagModelArray:_tagArray2 withSelectedTagCellModel:_selectedTagCellModel notSelectedTagCellModel:_notSelectedTagCellModel reuseIdentifier:[NSString stringWithFormat:@"%@%@", [LPTagCollectionViewCell cellReuseIdentifier], indexPath]];
-                cell.maximumNumber = 1;
-                cell.switchTagDelegate = self;
-            }
+            LPTagCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"2312" forIndexPath:indexPath];
+            cell.maximumNumber = 1;
+            cell.switchTagDelegate = self;
+            cell.selectedTagCellModel = _selectedTagCellModel;
+            cell.notSelectedTagCellModel = _notSelectedTagCellModel;
+            cell.tagArray = _tagArray2;
             return cell;
         }
     }
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 40;

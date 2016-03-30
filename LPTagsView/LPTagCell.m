@@ -59,6 +59,10 @@
     }    
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
 + (NSString *)cellReuseIdentifier {
     return NSStringFromClass(self);
 }
