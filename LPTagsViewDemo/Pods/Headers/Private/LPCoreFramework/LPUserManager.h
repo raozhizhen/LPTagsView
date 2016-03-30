@@ -1,1 +1,0 @@
-../../../LPCoreFramework/LPCoreFramework/UserManager/LPUserManager.h

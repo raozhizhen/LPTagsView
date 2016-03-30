@@ -9,7 +9,6 @@
 #import "LPTagCollectionView.h"
 #import "LPTagCell.h"
 #import "UICollectionViewLeftAlignedLayout.h"
-#import <LPToast.h>
 
 static NSString * const kSelectedTagcellReuseIdentifier = @"selectedTagcellReuseIdentifier";
 static NSString * const kNotSelectedTagcellReuseIdentifier = @"notSelectedTagcellReuseIdentifier";

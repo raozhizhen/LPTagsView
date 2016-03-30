@@ -7,7 +7,6 @@
 //
 
 #import "LPTagCell.h"
-#import <Masonry.h>
 
 @implementation LPTagCell {
     UILabel *_textLabel;
@@ -34,13 +33,10 @@
 
 - (void)setupViews {
 
-    _textLabel = [[UILabel alloc] init];
+    _textLabel = [[UILabel alloc] initWithFrame:self.contentView.frame];
     _textLabel.backgroundColor = [UIColor clearColor];
     [_textLabel setTextAlignment:NSTextAlignmentCenter];
     [self.contentView addSubview:_textLabel];
-    [_textLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
-    }];
 }
 
 - (void)setModel:(LPTagModel *)model {

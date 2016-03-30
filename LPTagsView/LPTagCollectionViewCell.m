@@ -8,7 +8,6 @@
 
 #import "LPTagCollectionViewCell.h"
 #import "LPTagCollectionView.h"
-#import <Masonry.h>
 
 @interface LPTagCollectionViewCell () <LPSwitchTagDelegate>
 

@@ -5,12 +5,8 @@ tags collectionView
 ![](https://github.com/raozhizhen/LPTagsView/blob/master/lptagsview.gif?raw=true)
 
 
-其实这东西没什么好封的，毕竟做不到一行代码实现效果，需要很多额外的代码去实现，封一下也只是为了方便自己，有需要的可以下载我的demo查看如何使用,标签的样式可以通过 LPTagCellModel 设置。
+其实这东西没什么好封的，毕竟做不到一行代码实现效果，需要很多额外的代码去实现，封一下也只是为了方便自己，有需要的可以下载我的demo查看如何使用。
 
 	platform :ios, '7.0'
 	
-<<<<<<< HEAD
 	pod 'LPTagsView', '~> 0.0.3'
-=======
-	pod 'LPTagsView', '~> 0.0.2'
->>>>>>> 4ce42920af356cd7f76d3eb5d82da39b71a5425d

@@ -3,19 +3,7 @@
 
 target ’LPTagsViewDemo’ do
 
-pod ‘Masonry’, '~> 0.6.1’
-
 pod 'UICollectionViewLeftAlignedLayout'
-
-pod 'LPToast', :git => 'git@bitbucket.org:loopeer/lptoast.git', :tag => '0.0.4'
-
-pod 'LPCategory', :git => 'git@bitbucket.org:loopeer/lpcategory.git’, :tag => '0.0.4'
-
-pod 'LPCoreFramework', :git => 'git@bitbucket.org:loopeer/lpcoreframework.git', :tag => '0.0.32'
-
-pod 'LPAlertView', :git => 'git@bitbucket.org:loopeer/LPAlertView.git’, :tag => '0.0.5'
-
-pod 'LPNetwork', :git => 'git@bitbucket.org:loopeer/LPNetwork.git', :tag => '0.0.5'
 
 end
 

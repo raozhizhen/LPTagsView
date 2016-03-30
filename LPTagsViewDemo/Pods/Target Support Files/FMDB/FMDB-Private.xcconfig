@@ -1,6 +1,0 @@
-#include "FMDB.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/FMDB" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CRToast" "${PODS_ROOT}/Headers/Public/DQAlertView" "${PODS_ROOT}/Headers/Public/DateTools" "${PODS_ROOT}/Headers/Public/EAIntroView" "${PODS_ROOT}/Headers/Public/EDStarRating" "${PODS_ROOT}/Headers/Public/FLEX" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/LPAlertView" "${PODS_ROOT}/Headers/Public/LPCategory" "${PODS_ROOT}/Headers/Public/LPCoreFramework" "${PODS_ROOT}/Headers/Public/LPNetwork" "${PODS_ROOT}/Headers/Public/LPToast" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/MTLFMDBAdapter" "${PODS_ROOT}/Headers/Public/MZAppearance" "${PODS_ROOT}/Headers/Public/Mantle" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/UICollectionViewLeftAlignedLayout"
-OTHER_LDFLAGS = ${FMDB_OTHER_LDFLAGS}
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES
