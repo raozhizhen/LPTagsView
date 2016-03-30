@@ -9,4 +9,4 @@ tags collectionView
 
 	platform :ios, '7.0'
 	
-	pod 'LPTagsView', '~> 0.0.3'
+	pod 'LPTagsView', '~> 0.0.4'
