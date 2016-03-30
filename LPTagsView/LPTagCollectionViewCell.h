@@ -1,11 +1,12 @@
 //
 //  LPTagCollectionViewCell.h
-//  LPTagsViewDemo
+//  startupTools
 //
 //  Created by jm on 15/12/11.
 //  Copyright © 2015年 Loopeer. All rights reserved.
 //
 
+#import <LPBaseTableViewCell.h>
 #import "LPTagModel.h"
 #import "LPTagCellModel.h"
 /**
@@ -42,7 +43,7 @@
 
 @end
 
-@interface LPTagCollectionViewCell :UITableViewCell
+@interface LPTagCollectionViewCell :LPBaseTableViewCell
 
 /**设置frame和标签数组，初始化标签cell的样式*/
 - (instancetype)initWithTagModelArray:(NSArray<LPTagModel *> *)array withSelectedTagCellModel:(LPTagCellModel *)selectedTagCellModel notSelectedTagCellModel:(LPTagCellModel *)notSelectedTagCellModel reuseIdentifier:(NSString *)reuseIdentifier;
@@ -55,9 +56,11 @@
 
 @property (nonatomic, strong) NSArray<LPTagModel *> *tagArray;/**<标签数组,可以从这里获取所有标签选中信息*/
 
-@property (nonatomic, assign) BOOL disableChoose;
+@property (nonatomic, strong) LPTagCellModel *selectedTagCellModel;
 
-@property (nonatomic, assign) CGFloat tagCollectionViewHeight;
+@property (nonatomic, strong) LPTagCellModel *notSelectedTagCellModel;
+
+@property (nonatomic, assign) BOOL disableChoose;
 
 + (NSString *)cellReuseIdentifier;
 

@@ -54,9 +54,11 @@
 
 @property (nonatomic, strong) NSArray<LPTagModel *> *tagArray;/**<标签数组*/
 
-@property (nonatomic, weak) id <LPSwitchTagDelegate> tagDelegate;
+@property (nonatomic, strong) LPTagCellModel *selectedTagCellModel;
 
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, strong) LPTagCellModel *notSelectedTagCellModel;
+
+@property (nonatomic, weak) id <LPSwitchTagDelegate> tagDelegate;
 
 @property (nonatomic, assign) BOOL disableChoose;/**<禁用选择，默认NO*/
 

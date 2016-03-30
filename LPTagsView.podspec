@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LPTagsView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "tags collectionView"
   s.homepage     = "https://github.com/raozhizhen/LPTagsView.git"
   s.author       = { "raozhizhen" => "raozhizhen@gmail.com" }

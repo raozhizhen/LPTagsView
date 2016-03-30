@@ -1,6 +1,6 @@
 //
 //  LPTagCollectionViewCell.m
-//  LPTagsViewDemo
+//  StartupTools
 //
 //  Created by jm on 15/12/11.
 //  Copyright © 2015年 Loopeer. All rights reserved.
@@ -8,6 +8,7 @@
 
 #import "LPTagCollectionViewCell.h"
 #import "LPTagCollectionView.h"
+#import <Masonry.h>
 
 @interface LPTagCollectionViewCell () <LPSwitchTagDelegate>
 
@@ -18,24 +19,29 @@
     NSArray<LPTagModel *> *_tagModelArray;
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
 - (instancetype)initWithTagModelArray:(NSArray<LPTagModel *> *)array withSelectedTagCellModel:(LPTagCellModel *)selectedTagCellModel notSelectedTagCellModel:(LPTagCellModel *)notSelectedTagCellModel reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.tagArray = array;
-        _tagCollectionViewHeight = 40;
-        _tagCollectionView = [[LPTagCollectionView alloc] initWithFrame:CGRectZero withTagModelArray:array selectedTagCellModel:selectedTagCellModel notSelectedTagCellModel:notSelectedTagCellModel];
-        _tagCollectionView.tagDelegate = self;
-        _tagModelArray = array;
-        _tagCollectionView.height = _tagCollectionViewHeight;
-        [self.contentView addSubview:_tagCollectionView];
-        
-        _tagCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
-        _tagCollectionView.tagArray = array;
-        
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_tagCollectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tagCollectionView)]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_tagCollectionView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tagCollectionView)]];
+        _tagArray = array;
+        _selectedTagCellModel = selectedTagCellModel;
+        _notSelectedTagCellModel = notSelectedTagCellModel;
+        [self setupViews];
     }
     return self;
+}
+
+- (void)setupViews {
+    _tagCollectionView = [[LPTagCollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.contentView.frame.size.height) withTagModelArray:_tagArray selectedTagCellModel:_selectedTagCellModel notSelectedTagCellModel:_notSelectedTagCellModel];
+    _tagCollectionView.tagDelegate = self;
+    [self.contentView addSubview:_tagCollectionView];
 }
 
 - (void)setDisableChoose:(BOOL)disableChoose {
@@ -53,10 +59,26 @@
     _tagCollectionView.maximumHeight = maximumHeight;
 }
 
+- (void)setSelectedTagCellModel:(LPTagCellModel *)selectedTagCellModel {
+    _selectedTagCellModel = selectedTagCellModel;
+    _tagCollectionView.selectedTagCellModel = _selectedTagCellModel;
+}
+
+- (void)setNotSelectedTagCellModel:(LPTagCellModel *)notSelectedTagCellModel {
+    _notSelectedTagCellModel = notSelectedTagCellModel;
+    _tagCollectionView.notSelectedTagCellModel = _notSelectedTagCellModel;
+}
+
+
+- (void)setTagArray:(NSArray<LPTagModel *> *)tagArray {
+    _tagArray = tagArray;
+    _tagCollectionView.tagArray = tagArray;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView reloadHeight:(CGFloat)height {
-    _tagCollectionViewHeight = height;
     if (self.switchTagDelegate && [self.switchTagDelegate respondsToSelector:@selector(tableViewCell:reloadCollectionViewCellHeight:)]) {
         [self.switchTagDelegate tableViewCell:self reloadCollectionViewCellHeight:height];
+        _tagCollectionView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, height);
     }
 }
 

@@ -1,0 +1,22 @@
+{
+  "name": "LPNetwork",
+  "version": "0.0.5",
+  "summary": "Loopeer Network Library based on AFNetworking 2.0+",
+  "homepage": "http://bitbucket.org/loopeer/LPNetwork",
+  "authors": {
+    "dengjiebin": "dengjiebin@loopeer.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://bitbucket.org/loopeer/LPNetwork.git",
+    "tag": "0.0.5"
+  },
+  "source_files": "LPNetwork/*.{h,m}",
+  "dependencies": {
+    "AFNetworking": [
+      "2.5.3"
+    ]
+  }
+}

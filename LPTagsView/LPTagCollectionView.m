@@ -9,6 +9,7 @@
 #import "LPTagCollectionView.h"
 #import "LPTagCell.h"
 #import "UICollectionViewLeftAlignedLayout.h"
+#import <LPToast.h>
 
 static NSString * const kSelectedTagcellReuseIdentifier = @"selectedTagcellReuseIdentifier";
 static NSString * const kNotSelectedTagcellReuseIdentifier = @"notSelectedTagcellReuseIdentifier";
@@ -18,12 +19,11 @@ static NSString * const kNotSelectedTagcellReuseIdentifier = @"notSelectedTagcel
 @end
 
 @implementation LPTagCollectionView {
-    LPTagCellModel *_selectedTagCellModel;
-    LPTagCellModel *_notSelectedTagCellModel;
     
     NSIndexPath *_lastChoose;
     NSInteger _chooseNumber;
-    BOOL _setUpHeight;
+    CGFloat _selfHeight;
+    CGFloat _collectionViewHeight;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame withTagModelArray:(NSArray<LPTagModel *> *)array selectedTagCellModel:(LPTagCellModel *)selectedTagCellModel notSelectedTagCellModel:(LPTagCellModel *)notSelectedTagCellModel {
@@ -40,14 +40,27 @@ static NSString * const kNotSelectedTagcellReuseIdentifier = @"notSelectedTagcel
     if (self) {
         self.showsVerticalScrollIndicator = NO;
         self.allowsMultipleSelection = YES;
-        self.scrollEnabled = NO;
-        _selectedTagCellModel = selectedTagCellModel;
-        _notSelectedTagCellModel = notSelectedTagCellModel;
+        if (selectedTagCellModel) {
+            _selectedTagCellModel = selectedTagCellModel;
+        } else {
+            _selectedTagCellModel = [[LPTagCellModel alloc] init];
+        }
+        if (notSelectedTagCellModel) {
+            _notSelectedTagCellModel = notSelectedTagCellModel;
+        } else {
+            _notSelectedTagCellModel = [[LPTagCellModel alloc] init];
+        }
         self.delegate = self;
         self.dataSource = self;
         self.maximumNumber = NSIntegerMax;
         _maximumHeight = NSIntegerMax;
-        self.tagArray = array;
+        _tagArray = array;
+        _chooseNumber = 0;
+        for (int i = 0; i < _tagArray.count; i++) {
+            if (((LPTagModel *)_tagArray[i]).isChoose) {
+                _chooseNumber ++;
+            }
+        }
         self.backgroundColor = [UIColor clearColor];
         [self registerClass:[LPTagCell class] forCellWithReuseIdentifier:kSelectedTagcellReuseIdentifier];
         [self registerClass:[LPTagCell class] forCellWithReuseIdentifier:kNotSelectedTagcellReuseIdentifier];
@@ -138,6 +151,8 @@ static NSString * const kNotSelectedTagcellReuseIdentifier = @"notSelectedTagcel
             _chooseNumber ++;
         }
     }
+    _collectionViewHeight = self.frame.size.height;
+    [self reloadData];
 }
 
 - (void)switchTag:(LPTagModel *)tagModel {
@@ -160,23 +175,19 @@ static NSString * const kNotSelectedTagcellReuseIdentifier = @"notSelectedTagcel
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat contentSizeHeight = MIN(self.contentSize.height, _maximumHeight);
-    if (_height != contentSizeHeight && contentSizeHeight != 0 && _setUpHeight) {
+    if (_collectionViewHeight != self.contentSize.height && self.contentSize.height != 0 && _collectionViewHeight) {
         if (self.tagDelegate && [self.tagDelegate respondsToSelector:@selector(collectionView:reloadHeight:)]) {
-            _setUpHeight = NO;
-            [self.tagDelegate collectionView:self reloadHeight:contentSizeHeight];
-            if (contentSizeHeight < self.contentSize.height) {
-                self.scrollEnabled = YES;
-            } else {
-                self.scrollEnabled = NO;
+            _collectionViewHeight = self.contentSize.height;
+            CGFloat height = _collectionViewHeight;
+            if (height > _maximumHeight) {
+                height = _maximumHeight;
+            }
+            if (height != _selfHeight) {
+                _selfHeight = height;
+                [self.tagDelegate collectionView:self reloadHeight:height];
             }
         }
     }
-}
-
-- (void)setHeight:(CGFloat)height {
-    _height = height;
-    _setUpHeight = YES;
 }
 
 #pragma mark - UICollectionViewDelegateLeftAlignedLayout

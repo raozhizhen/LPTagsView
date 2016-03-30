@@ -1,10 +1,182 @@
 PODS:
+  - AFNetworking (2.5.3):
+    - AFNetworking/NSURLConnection (= 2.5.3)
+    - AFNetworking/NSURLSession (= 2.5.3)
+    - AFNetworking/Reachability (= 2.5.3)
+    - AFNetworking/Security (= 2.5.3)
+    - AFNetworking/Serialization (= 2.5.3)
+    - AFNetworking/UIKit (= 2.5.3)
+  - AFNetworking/NSURLConnection (2.5.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.3)
+  - AFNetworking/Security (2.5.3)
+  - AFNetworking/Serialization (2.5.3)
+  - AFNetworking/UIKit (2.5.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - CRToast (0.0.7)
+  - DateTools (1.5.0)
+  - DQAlertView (1.1.1)
+  - EAIntroView (2.6.0)
+  - EDStarRating (1.1)
+  - FLEX (1.1.0)
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - LPAlertView (0.0.4):
+    - DQAlertView (= 1.1.1)
+    - EDStarRating (= 1.1)
+    - FLEX (= 1.1.0)
+    - Masonry (= 0.6.1)
+    - MZAppearance (= 1.1.1)
+  - LPCategory (0.0.4):
+    - DateTools (= 1.5.0)
+    - LPCategory/NSString (= 0.0.4)
+    - LPCategory/UINavigationBar (= 0.0.4)
+    - LPCategory/UITextField (= 0.0.4)
+    - LPCategory/UIViewController (= 0.0.4)
+  - LPCategory/NSString (0.0.4):
+    - DateTools (= 1.5.0)
+  - LPCategory/UINavigationBar (0.0.4):
+    - DateTools (= 1.5.0)
+  - LPCategory/UITextField (0.0.4):
+    - DateTools (= 1.5.0)
+  - LPCategory/UIViewController (0.0.4):
+    - DateTools (= 1.5.0)
+  - LPCoreFramework (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - LPCoreFramework/Base (= 0.0.31)
+    - LPCoreFramework/Fir (= 0.0.31)
+    - LPCoreFramework/Fmdb (= 0.0.31)
+    - LPCoreFramework/Guide (= 0.0.31)
+    - LPCoreFramework/Initialize (= 0.0.31)
+    - LPCoreFramework/Network (= 0.0.31)
+    - LPCoreFramework/UserManager (= 0.0.31)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/Base (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/Fir (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/Fmdb (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/Guide (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/Initialize (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/Network (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPCoreFramework/UserManager (0.0.31):
+    - EAIntroView (= 2.6.0)
+    - FMDB (= 2.5)
+    - Mantle (= 1.5.4)
+    - MTLFMDBAdapter (= 0.1.8)
+  - LPNetwork (0.0.5):
+    - AFNetworking (= 2.5.3)
+  - LPToast (0.0.4):
+    - CRToast (= 0.0.7)
+    - MBProgressHUD (= 0.9.1)
+    - MZAppearance (= 1.1.1)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
+  - Masonry (0.6.1)
+  - MBProgressHUD (0.9.1)
+  - MTLFMDBAdapter (0.1.8):
+    - FMDB (~> 2.3)
+    - Mantle (~> 1.5)
+  - MZAppearance (1.1.1)
   - UICollectionViewLeftAlignedLayout (1.0.2)
 
 DEPENDENCIES:
+  - LPAlertView (from `git@bitbucket.org:loopeer/LPAlertView.git`, tag `0.0.5`)
+  - LPCategory (from `git@bitbucket.org:loopeer/lpcategory.git`, tag `0.0.4`)
+  - LPCoreFramework (from `git@bitbucket.org:loopeer/lpcoreframework.git`, tag `0.0.32`)
+  - LPNetwork (from `git@bitbucket.org:loopeer/LPNetwork.git`, tag `0.0.5`)
+  - LPToast (from `git@bitbucket.org:loopeer/lptoast.git`, tag `0.0.4`)
+  - Masonry (~> 0.6.1)
   - UICollectionViewLeftAlignedLayout
 
+EXTERNAL SOURCES:
+  LPAlertView:
+    :git: git@bitbucket.org:loopeer/LPAlertView.git
+    :tag: 0.0.5
+  LPCategory:
+    :git: git@bitbucket.org:loopeer/lpcategory.git
+    :tag: 0.0.4
+  LPCoreFramework:
+    :git: git@bitbucket.org:loopeer/lpcoreframework.git
+    :tag: 0.0.32
+  LPNetwork:
+    :git: git@bitbucket.org:loopeer/LPNetwork.git
+    :tag: 0.0.5
+  LPToast:
+    :git: git@bitbucket.org:loopeer/lptoast.git
+    :tag: 0.0.4
+
+CHECKOUT OPTIONS:
+  LPAlertView:
+    :git: git@bitbucket.org:loopeer/LPAlertView.git
+    :tag: 0.0.5
+  LPCategory:
+    :git: git@bitbucket.org:loopeer/lpcategory.git
+    :tag: 0.0.4
+  LPCoreFramework:
+    :git: git@bitbucket.org:loopeer/lpcoreframework.git
+    :tag: 0.0.32
+  LPNetwork:
+    :git: git@bitbucket.org:loopeer/LPNetwork.git
+    :tag: 0.0.5
+  LPToast:
+    :git: git@bitbucket.org:loopeer/lptoast.git
+    :tag: 0.0.4
+
 SPEC CHECKSUMS:
+  AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  CRToast: 99a28f4387def43b439ad88f957ce31357ff7373
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
+  DQAlertView: 9e709b44c37e3c355a536186c71da8f7a6022eba
+  EAIntroView: 5a3241933b6b8d2886638057dfbc88f1222627d5
+  EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
+  FLEX: 2cb110548bef3271ef06c9817972abc9c28b5a1b
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  LPAlertView: 9d8794e3fe76549e3ee7c9163936dc3fa5d16fb6
+  LPCategory: e2a0c8e3fcb47123c0585268ea409d91c8b44580
+  LPCoreFramework: 46ab82ac0e27f614e966498b145320d78fd2cfb7
+  LPNetwork: f8574674dd8bbf02b86ce8ffaa75d7bb12a2cd96
+  LPToast: 5442f2ccbe7e1a1ec687801159b69a907815941e
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MTLFMDBAdapter: 491e80bb9fcda3f6a9e7b2cbad4a8e7be93189be
+  MZAppearance: aff4eaef3e6f499082b616cccba26009f2e67613
   UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
 
 COCOAPODS: 0.38.2
