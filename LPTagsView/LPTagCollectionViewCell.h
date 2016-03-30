@@ -6,6 +6,7 @@
 //  Copyright © 2015年 Loopeer. All rights reserved.
 //
 
+#import <LPBaseTableViewCell.h>
 #import "LPTagModel.h"
 #import "LPTagCellModel.h"
 /**
@@ -42,7 +43,7 @@
 
 @end
 
-@interface LPTagCollectionViewCell :UITableViewCell
+@interface LPTagCollectionViewCell :LPBaseTableViewCell
 
 /**设置frame和标签数组，初始化标签cell的样式*/
 - (instancetype)initWithTagModelArray:(NSArray<LPTagModel *> *)array withSelectedTagCellModel:(LPTagCellModel *)selectedTagCellModel notSelectedTagCellModel:(LPTagCellModel *)notSelectedTagCellModel reuseIdentifier:(NSString *)reuseIdentifier;

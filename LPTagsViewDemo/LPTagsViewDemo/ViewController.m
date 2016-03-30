@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LPTagCollectionViewCell.h"
+#import <LPToast.h>
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, LPTagCellSwitchTagDelegate>
 
@@ -31,7 +32,11 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.backgroundColor = [UIColor whiteColor];
+<<<<<<< HEAD
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+=======
+    [_tableView registerClass:[LPBaseTableViewCell class] forCellReuseIdentifier:[LPBaseTableViewCell cellReuseIdentifier]];
+>>>>>>> 4ce42920af356cd7f76d3eb5d82da39b71a5425d
     [_tableView registerClass:[LPTagCollectionViewCell class] forCellReuseIdentifier:[LPTagCollectionViewCell cellReuseIdentifier]];
     [_tableView registerClass:[LPTagCollectionViewCell class] forCellReuseIdentifier:@"2312"];
     [self.view addSubview:_tableView];
@@ -81,7 +86,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != 10 && indexPath.row != 8) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        LPBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[LPBaseTableViewCell cellReuseIdentifier] forIndexPath:indexPath];
         if (indexPath.row == 9) {
             cell.textLabel.text = @"点我查看选中的标签";
         } else {
@@ -101,9 +106,15 @@
         } else {
             LPTagCollectionViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"2312" forIndexPath:indexPath];
             cell.maximumNumber = 1;
+<<<<<<< HEAD
             cell.switchTagDelegate = self;
             cell.selectedTagCellModel = _selectedTagCellModel;
             cell.notSelectedTagCellModel = _notSelectedTagCellModel;
+=======
+            cell.selectedTagCellModel = _selectedTagCellModel;
+            cell.notSelectedTagCellModel = _notSelectedTagCellModel;
+            cell.switchTagDelegate = self;
+>>>>>>> 4ce42920af356cd7f76d3eb5d82da39b71a5425d
             cell.tagArray = _tagArray2;
             return cell;
         }
@@ -162,14 +173,13 @@
                 [tagModelSelectArray2 addObject:tagModel.name];
             }
         }
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"选中的标签" message:[NSString stringWithFormat:@"cell8:%@, cell10:%@", [tagModelSelectArray componentsJoinedByString:@","], [tagModelSelectArray2 componentsJoinedByString:@","]] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertView show];
+        
+        [LPToast showToast:[NSString stringWithFormat:@"cell8:%@, cell10:%@", [tagModelSelectArray componentsJoinedByString:@","], [tagModelSelectArray2 componentsJoinedByString:@","]]];
     }
 }
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell exceedsTheMaximumNumberOfOptions:(NSInteger)maximumNumber {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"选中的标签" message:[NSString stringWithFormat:@"最多只能选择%li个标签", maximumNumber] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-    [alertView show];
+    [LPToast showToast:[NSString stringWithFormat:@"最多只能选择%li个标签", maximumNumber]];
 }
 
 - (void)didReceiveMemoryWarning {

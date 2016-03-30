@@ -1,0 +1,1 @@
+../../../LPCoreFramework/LPCoreFramework/Fmdb/NSObject+Properties.h

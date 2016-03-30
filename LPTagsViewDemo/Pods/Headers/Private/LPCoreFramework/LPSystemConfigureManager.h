@@ -1,0 +1,1 @@
+../../../LPCoreFramework/LPCoreFramework/Initialize/LPSystemConfigureManager.h
